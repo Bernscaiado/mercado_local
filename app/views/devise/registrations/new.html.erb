@@ -11,6 +11,8 @@
     <%= f.input :username,
                 required: true,
                 autofocus: true %>
+    <%= label_tag(:role, "I am a producer") %>
+    <%= f.check_box(:role) %>
     <%= f.input :first_name,
                 required: true,
                 autofocus: true %>
