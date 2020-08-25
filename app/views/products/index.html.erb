@@ -1,11 +1,21 @@
-<h1>Produtos</h1>
+<div class="container">
+  <h1>Produtos</h1>
 
-<% if @products.empty?%> 
-    <p><%= 'Nenhum produto cadastrado'%><p> 
-<%else%>
-    <% @products.each do |product|  %>
-    <%= product.name %>, <%= product.price %>
-    <% end %>
-<% end  %>
+  <% if @products.empty?%>
+      <p><%= 'Nenhum produto cadastrado'%><p>
+  <%else%>
+      <% @products.each do |product|  %>
+      <div class="card-product mt-4">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= product.name %></h2>
+          <p><strong><%= number_to_currency(product.price) %></strong></p>
+        </div>
+      </div>
 
-<%= link_to 'Criar um novo produto', new_product_path %>
+      <% end %>
+  <% end  %>
+
+  <%= link_to 'Criar um novo produto', new_product_path, class:"btn btn-outline-secondary mt-4"%>
+
+</div>
