@@ -17,7 +17,7 @@
         </li>
         <li class="nav-item">
           <a class="navbar-brand" href="#">
-            <%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126510.svg', style:"width: 30px;"), carts_path %
+            <%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126510.svg', style:"width: 30px;"), carts_path %>
           </a>
         </li>
         <li class="nav-item dropdown">
@@ -29,6 +29,14 @@
       </ul>
     <div class="container">
       <input class="form-control" type="text" placeholder="Pesquisar" aria-label="Search">
+      <%= form_tag search_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a movie"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
     </div>
       <% if current_user.present? %>
         <button type="button" class="btn btn-outline-secondary mr-4 ml-4"><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></button>
