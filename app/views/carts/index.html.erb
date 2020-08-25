@@ -1,0 +1,14 @@
+<h1>Carrinho</h1>
+
+<% if @carts.empty?%>
+    <p><%= 'Nenhum produto cadastrado'%><p>
+<%else%>
+    <% @carts.each do |cart|  %>
+    <%= cart.product.name %>, <%= cart.product.price %>,qnt: <%= cart.quantity %> user:<%= cart.user_id%>
+    <%= link_to 'Alterar quantidade', edit_cart_path(cart) %>
+    <%= link_to 'Remover produto',  cart_path(cart), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <% end %>
+<% end  %>
+
+<%= link_to 'Continue comprando', products_path %>
