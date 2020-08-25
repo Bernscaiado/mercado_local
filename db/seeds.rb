@@ -1,5 +1,6 @@
 require "faker"
 
+Cart.delete_all
 Product.delete_all
 User.delete_all
 

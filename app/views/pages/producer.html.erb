@@ -1,0 +1,13 @@
+<h1>Produtores</h1>
+
+<% if @users.empty?%> 
+    <p><%= 'Nenhum produtor cadastrado'%><p> 
+<%else%>
+    <% @users.each do |user|  %>
+    Produtor: <%= user.first_name %>, <%= user.last_name %>
+    Fazenda: 
+    Origem:
+    <% end %>
+<% end  %>
+
+<%#= link_to 'Criar um novo produto', new_product_path %>

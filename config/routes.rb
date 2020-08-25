@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   end
   get 'products/index'
   devise_for :users
+  get 'myprofile', to: 'pages#profile'
+  get 'producers', to: 'pages#producer'
   root to: 'pages#home'
 end
