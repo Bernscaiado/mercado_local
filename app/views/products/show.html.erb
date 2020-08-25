@@ -1,3 +1,6 @@
 <%= @product.name %>
 <%= @product.category %>
 <%= number_to_currency(@product.price) %>
+
+<%= link_to 'Editar', edit_product_path(@product) %>
+<%= link_to 'Deletar', product_path, method: :delete, data: { confirm: 'Are you sure?' } %>
