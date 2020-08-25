@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-  #before_action :user_check, only: %i[edit update]
 
   def index
     @carts = Cart.where(user: current_user)
@@ -12,7 +11,6 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
-    @user = current_user
     @product = Product.find(params[:product_id])
     @cart.product = @product
     @cart.user = @user
@@ -46,11 +44,5 @@ class CartsController < ApplicationController
 
   def cart_params
     params.require(:cart).permit(:quantity, :user_id, :product_id)
-  end
-
-  def user_check
-    @user = current_user
-    @cart = Cart.find(params[:id])
-    redirect_to products_path unless @user == @cart.user_id
   end
 end
