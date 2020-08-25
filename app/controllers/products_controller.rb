@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :is_producer, only: %i[new create edit update destroy]
+  before_action :producer?, only: %i[new create edit update destroy]
   before_action :user_check, only: %i[edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
@@ -18,11 +18,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
-      if @product.save
-        redirect_to product_path(@product), notice: 'Product was successfully created.'
-      else
-        render :new
-      end
+    if @product.save
+      redirect_to product_path(@product), notice: 'Product was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
   private
 
-  def is_producer
+  def producer?
     @user = current_user
     redirect_to products_path unless @user.role == true
   end
