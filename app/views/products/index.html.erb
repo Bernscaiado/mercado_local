@@ -1,10 +1,11 @@
 <h1>Produtos</h1>
 
-<% if @products.empty?%> 
-    <p><%= 'Nenhum produto cadastrado'%><p> 
+<% if @products.empty?%>
+    <p><%= 'Nenhum produto cadastrado'%><p>
 <%else%>
     <% @products.each do |product|  %>
     <%= product.name %>, <%= product.price %>
+    <%= link_to 'Adicionar ao carrinho', new_product_cart_path(product) %>
     <% end %>
 <% end  %>
 
