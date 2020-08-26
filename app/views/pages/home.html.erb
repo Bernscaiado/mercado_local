@@ -11,11 +11,23 @@
 
 <div class="container">
   <div class="row" >
-    <div class="card-category col  m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <a href="#" style="color: white;">Destaques</a>
-    </div>
-    <div class="card-category m-3 col" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <a href="#" style="color: white;">Favoritos</a>
-    </div>
-  </div>
+    <% if not @products.empty? %>
+      <% products_categories = [] %>
+      <% @products.each do |product| %>
+        <% if not products_categories.include?(product.category) %>
+          <div class="card-category col  m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <a href="#" style="color: white;"><%= product.category %></a>
+          </div>
+        <% end %>
+          <% products_categories << product.category %>
+      <% end %>
+    <% end %>
+
+   </div>
 </div>
+
+
+<div class="container justify-content-center">
+    <%= link_to 'Produtos', products_path, class:'btn btn-outline-secondary'  %>
+</div>
+
