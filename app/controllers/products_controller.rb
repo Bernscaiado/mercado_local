@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = current_user
     if @product.save
-      redirect_to product_path(@product), notice: 'Product was successfully created.'
+      redirect_to product_path(@product), notice: 'O produto foi criado com sucesso.'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: 'Product was successfully updated.'
+      redirect_to @product, notice: 'O produto foi editado com sucesso.'
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
+    redirect_to products_url, notice: 'O produto foi removido com sucesso.'
   end
 
   private
