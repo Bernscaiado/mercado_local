@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <h1>Perfil do usuário</h1>
 
   Nome completo: <%= current_user.first_name %> <%= current_user.last_name %>
@@ -23,8 +23,10 @@
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= product.category %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_product_path(product), class: "fas fa-pen" %></td>
+        <td><%= link_to '', product_path(product), class: "fas fa-trash", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+        
       <% end %>
       </tr>
     </tbody>
