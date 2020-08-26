@@ -2,6 +2,7 @@ class CartsController < ApplicationController
 
   def index
     @carts = Cart.where(user: current_user)
+    @total = total
   end
 
   def new
@@ -44,5 +45,14 @@ class CartsController < ApplicationController
 
   def cart_params
     params.require(:cart).permit(:quantity, :user_id, :product_id)
+  end
+
+  def total
+    @carts = Cart.where(user: current_user)
+    total = 0
+    @carts.each do |cart|
+      total += cart.quantity * cart.product.price
+    end
+    return total
   end
 end
