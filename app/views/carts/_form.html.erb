@@ -1,5 +1,4 @@
 <%= simple_form_for [@product, @cart] do |f| %>
-  <%= f.input :quantity %>
+  <%= f.input :quantity, input_html: { min: '1', step: 'any' }  %>
   <%= f.button :submit, class:"btn btn-outline-secondary" %>
 <% end %>
-
