@@ -1,15 +1,20 @@
 <div class="container">
   <h1>Perfil do usuário</h1>
 
-  <%= current_user.first_name %>, <%= current_user.last_name %>,
-  <%= current_user.email %>, <%= current_user.username %>
+  Nome completo: <%= current_user.first_name %> <%= current_user.last_name %>
+  <br>
+  E-mail: <%= current_user.email %>
+  <br>
+  Username: <%= current_user.username %>
+  <br>
+  Endereço: <%= current_user.address %>
 
-  <table class='table'>
+  <table class='table mt-5'>
     <thead>
       <tr>
-        <th>Nome :</th>
-        <th>Preço :</th>
-        <th>Categoria :</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Categoria</th>
       </tr>
     </thead>
     <tbody>
