@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
   def search
     if params[:query].present?
-      @products = Product.where(name: params[:query])
+      @products = Product.where("name ILIKE ?", "%#{params[:query]}%")
     else
       @products = Product.all
     end
