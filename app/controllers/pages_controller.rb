@@ -20,4 +20,8 @@ class PagesController < ApplicationController
       @products = Product.all
     end
   end
+
+  def category
+    @products = Product.where("category ILIKE ?", "%#{params[:format]}%")
+  end
 end
