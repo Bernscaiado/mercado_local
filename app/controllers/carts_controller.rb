@@ -13,9 +13,9 @@ class CartsController < ApplicationController
     @cart = Cart.new(cart_params)
     @product = Product.find(params[:product_id])
     @cart.product = @product
-    @cart.user = @user
+    @cart.user = current_user
     if @cart.save
-      redirect_to carts_path, notice: 'product was successfully added to cart.'
+      redirect_to carts_path, notice: 'O produto foi adicionado ao carrinho com sucesso.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class CartsController < ApplicationController
   def update
     @cart = Cart.find(params[:id])
     if @cart.update(cart_params)
-      redirect_to carts_path, notice: 'product was successfully added to cart.'
+      redirect_to carts_path, notice: 'O produto foi adicionado ao carrinho com sucesso.'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class CartsController < ApplicationController
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
-    redirect_to carts_url, notice: 'product was successfully removed .'
+    redirect_to carts_url, notice: 'O produto foi removido do carrinho com sucesso'
   end
 
   private

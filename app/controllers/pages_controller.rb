@@ -10,4 +10,12 @@ class PagesController < ApplicationController
   def producer
     @users = User.all
   end
+
+  def search
+    if params[:query].present?
+      @products = Product.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @products = Product.all
+    end
+  end
 end
