@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   end
   get 'products/index'
   devise_for :users
-  get 'total', to: 'carts#total'
   get 'search', to: 'pages#search'
   get 'myprofile', to: 'pages#profile'
   get 'producers', to: 'pages#producer'
