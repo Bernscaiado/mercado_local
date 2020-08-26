@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @products = Product.where(user_id: current_user)
   end
 
   def producer

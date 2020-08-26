@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_url, notice: 'O produto foi removido com sucesso.'
+    redirect_to myprofile_url, notice: 'O produto foi removido com sucesso.'
   end
 
   private

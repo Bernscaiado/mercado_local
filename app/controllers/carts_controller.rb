@@ -48,7 +48,9 @@ class CartsController < ApplicationController
   end
 
   def total
+
     @carts = Cart.where(user: current_user)
+
     total = 0
     @carts.each do |cart|
       total += cart.quantity * cart.product.price
