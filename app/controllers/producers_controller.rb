@@ -1,4 +1,5 @@
 class ProducersController < ApplicationController
+  
   def new
     @producer = User.new
   end
