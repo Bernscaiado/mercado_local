@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
 
   def producer
-    @users = User.all
+    @users = User.where(role: true)
   end
 
   def search
