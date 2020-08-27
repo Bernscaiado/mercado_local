@@ -10,8 +10,8 @@
       <h5 class="card-title"><%= @product.name %></h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= @product.category %></li>
-      <li class="list-group-item"><%= number_to_currency(@product.price) %></li>
+      <li class="list-group-item"><%= @product.category.name %></li>
+      <li class="list-group-item">R<%= number_to_currency(@product.price) %></li>
     </ul>
     <div class="card-body">
       <a href="#" class="card-link"><%= link_to image_tag("https://image.flaticon.com/icons/svg/126/126483.svg", style:"width: 25px;"), edit_product_path(@product) %></a>

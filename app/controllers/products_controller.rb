@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @category = Category.all
   end
 
   def create
@@ -30,6 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @category = Category.all
     if @product.update(product_params)
       redirect_to @product, notice: 'O produto foi editado com sucesso.'
     else
@@ -50,7 +52,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :category, :price, :photo)
+    params.require(:product).permit(:name, :category_id, :price, :photo)
   end
 
   def user_check
