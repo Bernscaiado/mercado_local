@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :producers, only: %i[new create]
+  resources :producers, only: %i[new create index show]
   resources :carts, only: %i[index edit update destroy]
   resources :products do
     resources :carts, only: %i[new create]
@@ -9,6 +9,5 @@ Rails.application.routes.draw do
   get 'category', to: 'pages#category', as: 'category'
   get 'search', to: 'pages#search'
   get 'myprofile', to: 'pages#profile'
-  get 'allproducers', to: 'pages#producer'
   root to: 'pages#home'
 end
