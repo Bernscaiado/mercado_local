@@ -1,18 +1,20 @@
 class OrdersController < ApplicationController
 
   def create
-    @product = Product.find(params[:product_id])
-    @order = Order.create!(product: @product, product_name: @product.name, amount: @product.price, state: 'pending', user: current_user)
+    @carts = Cart.where(user: current_user)
+    @order = Order.create!(product: @carts.first.product, product_name: @carts.first.product.name, amount: @carts.first.product.price, state: 'pending', user: current_user)
+    @total = total
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: [{
-        name: @product.name,
+      line_items: [
+        {
+        name: 'Your Total',
         images: ['https://picsum.photos/200/300'],
-        amount: @product.price_cents,
+        amount: @total.to_i,
         currency: 'brl',
         quantity: 1
-      }],
+      }, ] ,
       success_url: order_url(@order),
       cancel_url: order_url(@order)
     )
@@ -24,4 +26,17 @@ class OrdersController < ApplicationController
   def show
     @order = current_user.orders.find(params[:id])
   end
+
+  private
+
+  def total
+    @carts = Cart.where(user: current_user)
+
+    total = 0
+    @carts.each do |cart|
+      total += cart.quantity * cart.product.price
+    end
+    return total
+  end
+
 end
