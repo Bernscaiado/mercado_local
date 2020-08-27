@@ -14,9 +14,11 @@
       <li class="list-group-item">R<%= number_to_currency(@product.price) %></li>
       <li class="list-group-item"><%= @product.quantity %> un.</li>
     </ul>
-    <div class="card-body">
-    <%= link_to 'Adicionar ao carrinho', new_product_cart_path(@product), class:"btn btn-light mt-2" %>
-    </div>
+    <% unless user_signed_in? && @product.user_id == current_user.id %>
+      <div class="card-body">
+        <%= link_to 'Adicionar ao carrinho', new_product_cart_path(@product), class:"btn btn-light mt-2" %>
+      </div>
+    <% end %>
       <%= link_to 'Produtos', products_path, class:"btn btn-outline-secondary mt-3" %>
   </div>
  </div>
