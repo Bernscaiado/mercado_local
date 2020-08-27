@@ -30,11 +30,15 @@ class CartsController < ApplicationController
     @product = @cart.product
     basket = @cart.quantity
     quant = params["cart"]["quantity"].to_i
-    if (quant <= (@product.quantity + basket))
-      @cart.update(cart_params)
+    if quant <= (@product.quantity + basket) && @cart.update(cart_params)
+      if quant < basket
+        @product.quantity += basket - quant
+      else
+        @product.quantity -= quant - basket
+      end
+      @product.save!
       redirect_to carts_path, notice: 'A quantidade foi alterada com sucesso.'
     else
-      @cart = Cart.find(params[:id])
       render :edit
     end
   end
