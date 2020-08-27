@@ -1,13 +1,8 @@
-<div class="container mt-5">
-  <h1>Perfil do usuário</h1>
+<div class="container mt-5 bg-white">
+  <h2 class="text-center pt-5">Perfil do usuário</h2>
 
-  Nome completo: <%= current_user.first_name %> <%= current_user.last_name %>
-  <br>
-  E-mail: <%= current_user.email %>
-  <br>
-  Username: <%= current_user.username %>
-  <br>
-  Endereço: <%= current_user.address %>
+  <p class="text-center pt-5">Nome: <%= current_user.first_name %> <%= current_user.last_name %> <br>
+  User: <%= current_user.username %></p>
 
   <table class='table mt-5'>
     <thead>
@@ -16,6 +11,9 @@
         <th>Preço</th>
         <th>Categoria</th>
         <th>Quantidade</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+
       </tr>
     </thead>
     <tbody>
@@ -25,14 +23,17 @@
         <td>R<%= number_to_currency(product.price) %></td>
         <td><%= product.category.name %></td>
         <td><%= product.quantity %> un.</td>
-        <td><%= link_to 'Editar', edit_product_path(product) %></td>
-        <td><%= link_to 'Deletar', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126483.svg', style:"width: 20px;"), edit_product_path(product) %></td>
+        <td><%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126468.svg', style:"width: 20px;"), product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       <% end %>
       </tr>
     </tbody>
   </table>
-  <% if current_user.role %>
-    <%= link_to 'Adicionar produto', new_product_path %>
+  <p class="pb-2">
+    <% if current_user.role %>
+    <%= link_to 'Adicionar produto', new_product_path, class: "btn btn-outline-secondary"%>
   <% end %>
+  </p>
 </div>
 

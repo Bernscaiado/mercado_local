@@ -17,10 +17,6 @@ class PagesController < ApplicationController
     @products = Product.where(user_id: current_user)
   end
 
-  def producer
-    @users = User.where(role: true)
-  end
-
   def search
     if params[:query].present?
       @products = Product.where("name ILIKE ?", "%#{params[:query]}%")

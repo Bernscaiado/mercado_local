@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_27_172713) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_172713) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.string "brand"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
