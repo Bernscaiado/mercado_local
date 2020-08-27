@@ -7,4 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :products
   has_one :cart
+
+  validates :address, :brand, presence: true, on: :update
 end

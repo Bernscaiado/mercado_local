@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <h2>Complete seu perfil</h2>
+
+  <%= simple_form_for @producer, url: producers_path, method: :post do |f| %>
+    <%= f.input :address, label: 'Endereço',
+                required: true,
+                autofocus: true %>
+    <%= f.input :brand, label: 'Marca',
+                required: true,
+                autofocus: true %>
+    <%= f.button :submit, "Complete o seu perfil", class:"btn btn-outline-secondary mr-3" %>
+    <% end %>
+</div>
