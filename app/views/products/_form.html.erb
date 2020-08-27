@@ -1,6 +1,6 @@
 <%= simple_form_for @product do |f| %>
   <%= f.input :name %>
-  <%= f.input :category %>
+  <%= f.input :category_id, collection: @category %>
   <%= f.input :price %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, class:"btn-outline-secondary" %>
