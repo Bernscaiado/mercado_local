@@ -1,8 +1,16 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
-    @user = current_user
+    @users = User.all
     @products = Product.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "users/info_window", locals: { user: user }),
+        image_url: helpers.asset_url('icon.jpg')
+      }
+    end
   end
 
   def profile
