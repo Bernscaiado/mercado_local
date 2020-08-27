@@ -16,7 +16,7 @@
         <div class="card-product-infos">
           <h2><%= product.name %></h2>
           <p><strong>R<%= number_to_currency(product.price) %></strong></p>
-          <% unless product.user_id == current_user.id %>
+          <% unless user_signed_in? && product.user_id == current_user.id %>
             <%= link_to 'Adicionar ao carrinho', new_product_cart_path(product), class:"btn btn-light mt-2" %>
           <% end %>
         </div>
