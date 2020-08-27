@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :products
   has_many :orders
   has_one :cart
+
+  validates :address, :brand, presence: true, on: :update, if: -> { role? }
 end
