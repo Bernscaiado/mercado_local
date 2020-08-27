@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: %i[home category]
   def home
     @users = User.all
     @products = Product.all
@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
 
   def producer
-    @users = User.all
+    @users = User.where(role: true)
   end
 
   def search
