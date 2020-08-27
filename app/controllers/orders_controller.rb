@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
         name: @product.name,
         images: ['https://picsum.photos/200/300'],
         amount: @product.price_cents,
-        currency: 'eur',
+        currency: 'brl',
         quantity: 1
       }],
       success_url: order_url(@order),
