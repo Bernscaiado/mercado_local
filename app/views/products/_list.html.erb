@@ -16,6 +16,7 @@
         <div class="card-product-infos">
           <h2><%= link_to product.name, "/products/#{product.id}" %></h2>
           <p><strong>R<%= number_to_currency(product.price) %></strong></p>
+          <p><strong><%= product.quantity %> un.</strong></p>
           <% unless user_signed_in? && product.user_id == current_user.id %>
           <% end %>
         </div>
