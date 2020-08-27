@@ -9,22 +9,25 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :username,
+    <%= f.input :username, label: 'Nome de usuário',
                 required: true,
                 autofocus: true %>
-    <%= label_tag(:role, "I am a producer") %>
+    <%= label_tag(:role, "Eu sou produtor") %>
     <%= f.check_box(:role) %>
-    <%= f.input :first_name,
+    <%= f.input :first_name, label: 'Nome',
                 required: true,
                 autofocus: true %>
-    <%= f.input :last_name,
+    <%= f.input :last_name, label: 'Sobrenome',
                 required: true,
                 autofocus: true %>
-    <%= f.input :password,
+    <%= f.input :address, label: 'Endereço',
+                required: true,
+                autofocus: true %>
+    <%= f.input :password, label: 'Senha',
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+    <%= f.input :password_confirmation, label: 'Confirme a senha',
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
