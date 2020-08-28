@@ -1,18 +1,18 @@
 <%- if controller_name != 'sessions' %>
   <p class="pb-2">
-    <%= link_to "Entrar", new_session_path(resource_name), class:"btn btn-outline-secondary" %><br />
+    <%= link_to "Entrar", new_session_path(resource_name), class:"btn btn-outline-info" %><br />
   </p>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <p class="pb-2">
-    <%= link_to "Registrar", new_registration_path(resource_name), class:"btn btn-outline-secondary mr-3" %><br />
+    <%= link_to "Registrar", new_registration_path(resource_name), class:"btn btn-outline-info mr-3" %><br />
   </p>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <p class="pb-2">
-    <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class:"btn btn-outline-secondary mr-3" %><br />
+    <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class:"btn btn-outline-info mr-3" %><br />
   </p>
 <% end %>
 
