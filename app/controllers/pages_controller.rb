@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home category]
+  skip_before_action :authenticate_user!, only: %i[home category search]
   def home
     @users = User.all
     @products = Product.all
