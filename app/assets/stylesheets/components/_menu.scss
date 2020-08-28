@@ -1,0 +1,49 @@
+.category-submenu .submenu-outer {
+  width: inherit;
+  margin: 0 auto;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.category-submenu {
+  position: relative;
+  background: white;
+  display: flex;
+  padding: 0 10px;
+}
+
+div {
+  display: block;
+}
+
+.submenu-inner {
+  position: relative;
+}
+
+.cf {
+  zoom: 1;
+}
+
+.category-submenu ul.level0 {
+  display: flex;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-submen li {
+  padding: 0 0 0 30px;
+  display: block;
+  box-sizing: border-box;
+  white-space: nowrap;
+  line-height: 2;
+  display: inline;
+  color: white;
+  text-decoration: none;
+}
