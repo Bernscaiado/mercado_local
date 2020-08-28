@@ -1,25 +1,29 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <a class="navbar-brand" href="#">
-    <%= image_tag 'mercado.png', style:"width: 30px; height: 30px;"%>
+    <%= link_to image_tag('logo.png', style:"width: 130px; height: 130px;"), root_path %>
   </a>
 
   <!-- Search form -->
   <div class="collapse navbar-collapse ml-4 mr-4 " id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="navbar-brand" href="#">
-            <%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126496.svg', style:"width: 30px;"), root_path  %>
-
-          </a>
         </li>
         <li class="nav-item active">
           <a class="navbar-brand" href="#">
-            <%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126486.svg', style:"width: 30px;"), myprofile_path %>
+            <%= link_to image_tag('user.png', style:"width: 30px;"), myprofile_path %>
           </a>
         </li>
         <li class="nav-item">
           <a class="navbar-brand" href="#">
-            <%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126510.svg', style:"width: 30px;"), carts_path %>
+            <%= link_to image_tag('cart.png', style:"width: 30px;"), carts_path %>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" href="#">
+          <%= link_to image_tag('products.png', style:"width: 30px;"), products_path %>
+          </a>
+          <li class="nav-item">
+          <a class="navbar-brand" href="#">
+          <%= link_to image_tag('farmer.png', style:"width: 30px;"), producers_path %>
           </a>
         </li>
         <li class="nav-item dropdown">
@@ -41,9 +45,10 @@
         <% end %>
     </div>
       <% if current_user.present? %>
-        <button type="button" class="btn btn-outline-secondary mr-4 ml-4"><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></button>
+        <button type="button" class="btn-navbar mr-4 ml-4" ><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></button>
       <% else %>
-        <button type="button" class="btn btn-outline-secondary mr-4 ml-4"><%= link_to 'LOGIN', new_user_session_path  %></button>
+        <button type="button" class="btn-navbar mr-4 ml-4"><%= link_to 'LOGIN', new_user_session_path  %></button>
       <% end %>
   </div>
 </div>
+
