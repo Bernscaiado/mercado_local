@@ -27,6 +27,21 @@
       </div>
     <% end  %>
   </div>
+
+  <% if not @carts.first.nil? %>
+  <button id="pay" class="btn btn-primary">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_session_id %>'
+          });
+        });
+      </script>
+  <% end %>
+
   <p class="pb-3">
     <%= link_to 'Continue comprando', products_path, class:"btn btn-outline-secondary mt-3" %>
   </p>

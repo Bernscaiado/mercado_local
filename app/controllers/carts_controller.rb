@@ -4,7 +4,26 @@ class CartsController < ApplicationController
 
   def index
     @carts = Cart.where(user: current_user)
-    @total = total
+    if not @carts.first.nil?
+      @order = Order.create!(product: @carts.first.product, product_name: @carts.first.product.name, amount: @carts.first.product.price, state: 'pending', user: current_user)
+      @total = total.to_i
+
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [
+          {
+          name: 'Your Total',
+          images: ['https://picsum.photos/200/300'],
+          amount: @total * 100,
+          currency: 'brl',
+          quantity: 1
+        }, ] ,
+        success_url: order_url(@order),
+        cancel_url: order_url(@order)
+      )
+
+      @order.update(checkout_session_id: session.id)
+    end
   end
 
   def new

@@ -25,14 +25,15 @@ cat1 = Category.create!(name: 'Frutas')
 cat2 = Category.create!(name: 'Variados')
 
 3.times do
- Product.create!(name: Faker::Dessert.variety, quantity: 3,category: cat, price: rand(1..10).to_f, user: user1)
+
+ Product.create!(name: Faker::Dessert.variety, quantity: 3,category: cat, price: rand(1..10), user: user1)
 end
 
 3.times do
-  Product.create!(name: Faker::Food.fruits, quantity: 3,category: cat1, price: rand(1..10).to_f, user: user3)
+  Product.create!(name: Faker::Food.fruits, quantity: 3,category: cat1, price: rand(1..10), user: user3)
 end
 
 3.times do
-  Product.create!(name: Faker::Food.ingredient, quantity: 2,category: cat2, price: rand(1..10).to_f, user: user2)
+  Product.create!(name: Faker::Food.ingredient, quantity: 2,category: cat2, price: rand(1..10), user: user2)
 end
 
