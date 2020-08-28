@@ -9,14 +9,14 @@
         <% end %>
       </div>
       <div class="card-body">
-        <h5 class="card-title"><%= @product.name %></h5>
+        <h4 class="card-title"><%= @product.name %></h4>
       </div>
     </div>
     <div class="col-12 col-lg-6">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= @product.category.name %></li>
-        <li class="list-group-item"><%= @product.description %></li>
-        <li class="list-group-item">R<%= number_to_currency(@product.price) %></li>
+        <li class="list-group-item">Categoria: <%= @product.category.name %></li>
+        <li class="list-group-item">Sobre o produto: <%= @product.description %></li>
+        <li class="list-group-item">Preço: R<%= number_to_currency(@product.price) %></li>
         <li class="list-group-item"><%= @product.quantity %> un.</li>
       </ul>
       <% unless user_signed_in? && @product.user_id == current_user.id %>
@@ -28,6 +28,7 @@
           <% end %>
         </div>
       <% end %>
+      <br>
         <%= link_to 'Voltar aos Produtos', products_path, class:"btn btn-outline-info" %>
     </div>
   </div>
