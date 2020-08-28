@@ -29,9 +29,10 @@
       </div>
     <% end  %>
   </div>
+  <div>
 
   <% if not @carts.first.nil? %>
-  <button id="pay" class="btn btn-primary">Pay</button>
+  <button id="pay" class="btn btn-outline-info">Pagar</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
