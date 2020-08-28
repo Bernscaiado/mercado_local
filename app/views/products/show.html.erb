@@ -11,6 +11,7 @@
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><%= @product.category.name %></li>
+      <li class="list-group-item"><%= @product.description %></li>
       <li class="list-group-item">R<%= number_to_currency(@product.price) %></li>
       <li class="list-group-item"><%= @product.quantity %> un.</li>
     </ul>
