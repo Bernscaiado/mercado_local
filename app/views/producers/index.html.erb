@@ -1,20 +1,26 @@
 <div class="container mt-5 bg-white">
-  <h1 class="text-center pt-3">Produtores</h1>
+  <h1 class="text-center pt-3">Produtores do Mercado Local</h1>
 
-  <% if @users.empty?%>
-    <p><%= 'Nenhum produtor cadastrado'%><p>
-  <%else%>
-    <% @users.each do |user|  %>
-    <br>
-    Produtor: <%= user.first_name %> <%= user.last_name %>
-    <br>
-    Fazenda:
-    <br>
-    Origem:
-    <br>
-    <%= link_to 'Conheça mais', producer_path(user), class: "btn btn-outline-secondary"%>
-    <% end %>
-  <p class="pb-3">
-  <% end  %>
+  <div class="row ml-5">
+    <% if @users.empty?%>
+      <p><%= 'Nenhum produtor cadastrado'%><p>
+    <%else%>
+      <% @users.each do |user|  %>
+      <div class="col-md-12 col-lg-6">
+        <div class="card-product my-4 mr-4">
+            <div class="card-product-infos">
+              Produtor: <%= user.first_name %> <%= user.last_name %>
+              <br>
+              Marca: <%= user.brand %>
+              <br>
+              Origem: <%= user.address %>
+              <br>
+              <%= link_to 'Conheça este produtor', producer_path(user), class: "btn btn-outline-info"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end  %>
+  </div>
 </div>
 

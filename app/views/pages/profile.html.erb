@@ -1,9 +1,10 @@
-<div class="container mt-5 bg-white">
-  <h2 class="text-center pt-5">Perfil do usuário</h2>
+<div class="container mt-4 card-profile">
+  <h2 class="text-left pt-5">Meu perfil</h2>
 
-  <p class="text-center pt-5">Nome: <%= current_user.first_name %> <%= current_user.last_name %> <br>
+  <p class="text-left pt-2">Nome: <%= current_user.first_name %> <%= current_user.last_name %> <br>
   User: <%= current_user.username %></p>
 
+  <% if current_user.role == true %>
   <table class='table mt-5'>
     <thead>
       <tr>
@@ -32,8 +33,9 @@
   </table>
   <p class="pb-2">
     <% if current_user.role %>
-    <%= link_to 'Adicionar produto', new_product_path, class: "btn btn-outline-secondary"%>
+    <%= link_to 'Adicionar produto', new_product_path, class: "btn btn-outline-info"%>
   <% end %>
   </p>
+  <% end %>
 </div>
 

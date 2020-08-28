@@ -1,30 +1,36 @@
-
- <div class="container mt-4" style="width: 500px;">
-    <div class="card text-center img-fluid Imagem responsiva">
-      <% if @product.photo.attached? %>
-         <%= cl_image_tag @product.photo.key, height: 400, width: 470, crop: :fill %>
-      <% else %>
-        <%= image_tag('https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')%>
-      <% end %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @product.name %></h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= @product.category.name %></li>
-      <li class="list-group-item"><%= @product.description %></li>
-      <li class="list-group-item">R<%= number_to_currency(@product.price) %></li>
-      <li class="list-group-item"><%= @product.quantity %> un.</li>
-    </ul>
-    <% unless user_signed_in? && @product.user_id == current_user.id %>
-      <div class="card-body">
-        <% if @product.quantity == 0 %>
-          <%= 'Produto indisponível' %>
+ <div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="text-center">
+        <% if @product.photo.attached? %>
+           <%= cl_image_tag @product.photo.key, crop: :fill, class: "w-100" %>
         <% else %>
-          <%= link_to 'Adicionar ao carrinho', new_product_cart_path(@product), class:"btn btn-light mt-2" %>
+          <%= image_tag('https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', class: "w-100")%>
         <% end %>
       </div>
-    <% end %>
-      <%= link_to 'Voltar aos Produtos', products_path, class:"btn btn-outline-secondary" %>
+      <div class="card-body">
+        <h4 class="card-title"><%= @product.name %></h4>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Categoria: <%= @product.category.name %></li>
+        <li class="list-group-item">Sobre o produto: <%= @product.description %></li>
+        <li class="list-group-item">Preço: R<%= number_to_currency(@product.price) %></li>
+        <li class="list-group-item"><%= @product.quantity %> un.</li>
+      </ul>
+      <% unless user_signed_in? && @product.user_id == current_user.id %>
+        <div class="card-body">
+          <% if @product.quantity == 0 %>
+            <%= 'Produto indisponível' %>
+          <% else %>
+            <%= link_to 'Adicionar ao carrinho', new_product_cart_path(@product), class:"btn btn-info mt-2" %>
+          <% end %>
+        </div>
+      <% end %>
+      <br>
+        <%= link_to 'Voltar aos Produtos', products_path, class:"btn btn-outline-info" %>
+    </div>
   </div>
 
  </div>

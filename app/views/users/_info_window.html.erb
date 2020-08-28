@@ -1,3 +1,7 @@
-<h2><%= user.brand %></h2>
-<p><%= user.address %></p>
-<%= link_to 'Conheça este produtor', producer_path(user) %>
+<div class="container">
+    <div class="infowindow">
+        <h4><%= user.brand %></h4>
+        <p><%= user.address %></p>
+        <h6><%= link_to 'Conheça este produtor', producer_path(user), style:'text-decoration: none; color:white;' %></h6>
+    </div>
+</div>
