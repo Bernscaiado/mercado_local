@@ -2,10 +2,16 @@
   <div class="submenu-outer">
     <div class="submenu-inner cf">
       <ul class="level10 product-nav" style="width: 100%;">
+      <% if not @products.empty? %>
+        <% products_categories = [] %>
         <% @products.each do |product| %>
-          <li><%= link_to product.category.name, category_path(product.category.name), style:'text-decoration: none;' %></li>
+        <% if not products_categories.include?(product.category) %>
+          <li style="text-decoration: none;">|<%= link_to product.category.name, category_path(product.category.name), style:'text-decoration: none; color:black;' %></li>
+         <% products_categories << product.category %>
         <% end %>
-      </ul>
+        <% end %>
+      |</ul>
+      <% end %>
     </div>
   </div>
 </div>
