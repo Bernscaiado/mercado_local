@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
       line_items: [
         {
         name: 'Your Total',
-        images: ['https://picsum.photos/200/300'],
+        images: ['logo.png'],
         amount: @total.to_i,
         currency: 'brl',
         quantity: 1
@@ -24,8 +24,10 @@ class OrdersController < ApplicationController
   end
 
   def show
-    current_user.cart.delete
     @order = current_user.orders.find(params[:id])
+    @carts = Cart.where(user: current_user)
+    @total = total
+    @carts.delete_all
   end
 
   private
