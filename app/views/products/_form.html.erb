@@ -1,8 +1,9 @@
 <%= simple_form_for @product do |f| %>
   <%= f.input :name, label: 'Nome' %>
+  <%= f.input :description, label: 'Descrição' %>
   <%= f.input :category_id, collection: @category, label: 'Categoria' %>
   <%= f.input :price, label: 'Preço'  %>
   <%= f.input :quantity, label: 'Quantidade' %>
   <%= f.input :photo, as: :file, label: 'Foto'%>
-  <%= f.button :submit, class:"btn-outline-secondary"%>
+  <%= f.button :submit, 'Criar Produto', class:"btn-outline-secondary"%>
 <% end %>
