@@ -1,7 +1,9 @@
 <div class="container mt-4 bg-white">
   <div class="row">
     <% if @carts.empty?%>
-      <p><%= 'Nenhum produto cadastrado'%><p>
+      <div class='mt-4'>
+        <p><%= 'Seu carrinho está vazio'%><p>
+      </div>
     <%else%>
       <% @carts.each do |cart|  %>
         <div class="col-md-12 col-lg-6">
