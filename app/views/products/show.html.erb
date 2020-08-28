@@ -16,7 +16,11 @@
     </ul>
     <% unless user_signed_in? && @product.user_id == current_user.id %>
       <div class="card-body">
-        <%= link_to 'Adicionar ao carrinho', new_product_cart_path(@product), class:"btn btn-light mt-2" %>
+        <% if @product.quantity == 0 %>
+          <%= 'Produto indisponível' %>
+        <% else %>
+          <%= link_to 'Adicionar ao carrinho', new_product_cart_path(@product), class:"btn btn-light mt-2" %>
+        <% end %>
       </div>
     <% end %>
       <%= link_to 'Produtos', products_path, class:"btn btn-outline-secondary mt-3" %>
