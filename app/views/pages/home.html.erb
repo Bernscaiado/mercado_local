@@ -1,9 +1,9 @@
-<div class="category-container ">
+<div class="category-submenu ">
   <div class="submenu-outer">
     <div class="submenu-inner cf">
       <ul class="level10 product-nav" style="width: 100%;">
         <% @products.each do |product| %>
-            <li><%= link_to product.category.name, category_path(product.category.name) %></li>
+          <li><%= link_to product.category.name, category_path(product.category.name), style:'text-decoration: none;' %></li>
         <% end %>
       </ul>
     </div>
@@ -18,4 +18,4 @@
 
 <%= render 'shared/map' %>
 
-<h1 style="font-family: 'Dancing Script', cursive; text-align: center;">Apoie produtores locais</h1>
+<h1 class='my-3' style="font-family: 'Dancing Script', cursive; text-align: center;">Apoie produtores locais</h1>

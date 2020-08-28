@@ -1,12 +1,12 @@
-.category-container .submenu-outer {
-    width: inherit;
-    margin: 0 auto;
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+.category-submenu .submenu-outer {
+  width: inherit;
+  margin: 0 auto;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
-.category-container {
+.category-submenu {
   position: relative;
   background: white;
   display: flex;
@@ -25,7 +25,7 @@ div {
   zoom: 1;
 }
 
-.category-container ul.level0 {
+.category-submenu ul.level0 {
   display: flex;
   max-width: 100%;
   overflow-x: auto;
@@ -37,11 +37,13 @@ ul {
   padding: 0;
 }
 
-li {
+.category-submen li {
   padding: 0 0 0 30px;
   display: block;
   box-sizing: border-box;
   white-space: nowrap;
   line-height: 2;
   display: inline;
+  color: white;
+  text-decoration: none;
 }
