@@ -5,22 +5,17 @@
     <% if @users.empty?%>
       <p><%= 'Nenhum produtor cadastrado'%><p>
     <%else%>
-      <% @users.each do |user|  %>
-      <div class="col-md-12 col-lg-6">
-        <div class="card-product my-4 mr-4">
-            <div class="card-product-infos">
-              Produtor: <%= user.first_name %> <%= user.last_name %>
-              <br>
-              Marca: <%= user.brand %>
-              <br>
-              Origem: <%= user.address %>
-              <br>
-              <%= link_to 'Conheça este produtor', producer_path(user), class: "btn btn-outline-info"%>
+     <% @users.each do |user|  %>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-product my-4 mr-4" style="width: 275px;">
+              <div class="card-product-infos">
+            <h2><%= link_to "Produtor: #{user.first_name} #{user.last_name}", producer_path(user) %></h2>
+            <p><strong>Marca: <%= user.brand %></strong></p>
+            <p><strong>Origem: <%= user.address %></strong></p>
             </div>
-          </div>
         </div>
+      </div>
       <% end %>
     <% end  %>
   </div>
 </div>
-
