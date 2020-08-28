@@ -1,5 +1,5 @@
-<div class="container mt-4 bg-white">
-  <h2>Complete seu perfil</h2>
+<div class="container mt-4 card-profile">
+  <h2 class="pt-2">Complete seu perfil</h2>
 
   <%= simple_form_for @producer, url: producers_path, method: :post do |f| %>
     <%= f.input :address, label: 'Endereço',
