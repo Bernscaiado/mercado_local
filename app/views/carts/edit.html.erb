@@ -4,7 +4,7 @@
   <%= simple_form_for @cart do |f| %>
     <%= f.input :quantity, input_html: { min: '1', step: 'any' }, label: 'Quantidade' %>
     <p class="pb-3">
-      <%= f.button :submit, 'Criar carrinho', class:"btn btn-outline-secondary" %>
+      <%= f.button :submit, 'Criar carrinho', class:"btn btn-outline-info" %>
     </p>
   <% end %>
 </div>
