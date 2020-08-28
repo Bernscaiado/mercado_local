@@ -8,7 +8,7 @@ class PagesController < ApplicationController
         lat: user.latitude,
         lng: user.longitude,
         infoWindow: render_to_string(partial: "users/info_window", locals: { user: user }),
-        image_url: helpers.asset_url('icon.jpg')
+        image_url: helpers.asset_url('icon.png')
       }
     end
   end
