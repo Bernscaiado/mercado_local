@@ -18,15 +18,16 @@
       </tr>
     </thead>
     <tbody>
-      <% @products.each do |product| %>
-        <tr>
-        <td><%= product.name %></td>
-        <td>R<%= number_to_currency(product.price) %></td>
-        <td><%= product.category.name %></td>
-        <td><%= product.quantity %> un.</td>
-        <td><%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126483.svg', style:"width: 20px;"), edit_product_path(product) %></td>
-        <td><%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126468.svg', style:"width: 20px;"), product_path(product), method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
-
+      <% unless @products.nil? %>
+        <% @products.each do |product| %>
+          <tr>
+          <td><%= product.name %></td>
+          <td>R<%= number_to_currency(product.price) %></td>
+          <td><%= product.category.name %></td>
+          <td><%= product.quantity %> un.</td>
+          <td><%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126483.svg', style:"width: 20px;"), edit_product_path(product) %></td>
+          <td><%= link_to image_tag('https://image.flaticon.com/icons/svg/126/126468.svg', style:"width: 20px;"), product_path(product), method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      <% end %>
       <% end %>
       </tr>
     </tbody>
