@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   def create
     @carts = Cart.where(user: current_user)
-    @order = Order.create!(product: @carts.first.product, product_name: @carts.first.product.name, amount: @carts.first.product.price, state: 'pending', user: current_user)
+    @order = Order.create!(product: @carts.first.product, product_name: @carts.first.product.name, amount: @carts.first.product.price, state: 'pendente', user: current_user)
     @total = total
 
     session = Stripe::Checkout::Session.create(
