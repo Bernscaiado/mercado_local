@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    current_user.cart.delete
     @order = current_user.orders.find(params[:id])
   end
 
