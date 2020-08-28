@@ -1,6 +1,10 @@
-<div class="container">
-  <h1>Editar</h1>
+<div class="container mt-4 bg-white">
+  <h2 class="pt-3">Editar</h2>
 
-<%= render 'form' %>
-
+  <%= simple_form_for @cart do |f| %>
+    <%= f.input :quantity, input_html: { min: '1', step: 'any' }, label: 'Quantidade' %>
+    <p class="pb-3">
+      <%= f.button :submit, 'Criar carrinho', class:"btn btn-outline-secondary" %>
+    </p>
+  <% end %>
 </div>

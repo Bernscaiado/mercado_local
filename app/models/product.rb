@@ -9,4 +9,5 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
 
   monetize :price_cents
+  validates :quantity, numericality: { greater_than_or_equal: 0 }
 end

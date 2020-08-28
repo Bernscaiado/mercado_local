@@ -1,35 +1,21 @@
+<div class="category-submenu ">
+  <div class="submenu-outer">
+    <div class="submenu-inner cf">
+      <ul class="level10 product-nav" style="width: 100%;">
+        <% @products.each do |product| %>|
+          <li><%= link_to product.category.name, category_path(product.category.name), style:'text-decoration: none;' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 <%= render 'shared/carousel' %>
-
-
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 </style>
-
-<h2 class="mt-3" style="font-family: 'Dancing Script', cursive; text-align: center;">Apoie produtores locais</h2>
-
-
-<div class="container">
-  <div class="cards" >
-    <% if not @products.empty? %>
-      <% products_categories = [] %>
-      <% @products.each do |product| %>
-        <% if not products_categories.include?(product.category) %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1562601579-599dec564e06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-            <p style="color: white"><%= link_to product.category.name, category_path(product.category.name) %></p>
-          </div>
-        <% end %>
-          <% products_categories << product.category %>
-      <% end %>
-    <% end %>
-
-   </div>
-</div>
-
-
-<div class="container justify-content-center">
-    <%= link_to 'Produtos', products_path, class:'btn btn-outline-secondary mt-3'  %>
-    <%= link_to 'Produtores', producers_path, class:'btn btn-outline-secondary mt-3'  %>
-</div>
+<h1 class='mt-5' style="font-family: 'Dancing Script', cursive; text-align: center;">Direto da Origem</h1>
 
 <%= render 'shared/map' %>
+
+<h1 class='my-3' style="font-family: 'Dancing Script', cursive; text-align: center;">Apoie produtores locais</h1>

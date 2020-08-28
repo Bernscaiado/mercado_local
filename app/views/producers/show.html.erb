@@ -1,5 +1,5 @@
-<div class="container mt-5">
-  <h1><%= @user.brand %></h1>
+<div class="container mt-5 bg-white">
+  <h1 class="pt-2"><%= @user.brand %></h1>
 
   Nome completo: <%= @user.first_name %> <%= @user.last_name %>
   <br>
@@ -7,13 +7,14 @@
   <br>
   Endereço: <%= @user.address %>
   <br>
-  
+
   <table class='table mt-5'>
     <thead>
       <tr>
         <th>Nome</th>
         <th>Preço</th>
         <th>Categoria</th>
+        <th>Comprar</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +24,7 @@
         <td><%= product.price %></td>
         <td><%= product.category.name %></td>
         <td><%= link_to 'Compre', product_path(product) %></td>
-      <% end %>   
+      <% end %>
       </tr>
     </tbody>
   </table>
