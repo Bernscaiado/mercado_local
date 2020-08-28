@@ -1,14 +1,20 @@
-<h1>Produtores</h1>
+<div class="container mt-5 bg-white">
+  <h1 class="text-center pt-3">Produtores</h1>
 
-<% if @users.empty?%> 
-    <p><%= 'Nenhum produtor cadastrado'%><p> 
-<%else%>
+  <% if @users.empty?%>
+    <p><%= 'Nenhum produtor cadastrado'%><p>
+  <%else%>
     <% @users.each do |user|  %>
-    Produtor: <%= user.first_name %>, <%= user.last_name %>
-    Fazenda: 
+    <br>
+    Produtor: <%= user.first_name %> <%= user.last_name %>
+    <br>
+    Fazenda:
+    <br>
     Origem:
-    <%= link_to 'Conheça mais', producer_path(user) %>
+    <br>
+    <%= link_to 'Conheça mais', producer_path(user), class: "btn btn-outline-secondary"%>
     <% end %>
-<% end  %>
-
+  <p class="pb-3">
+  <% end  %>
+</div>
 

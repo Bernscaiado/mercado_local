@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 bg-white">
   <h2>Complete seu perfil</h2>
 
   <%= simple_form_for @producer, url: producers_path, method: :post do |f| %>
@@ -9,5 +9,5 @@
                 required: true,
                 autofocus: true %>
     <%= f.button :submit, "Completar perfil", class:"btn btn-outline-secondary mr-3" %>
-    <% end %>
+  <% end %>
 </div>
