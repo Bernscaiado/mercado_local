@@ -3,7 +3,7 @@
     <div class="submenu-inner cf">
       <ul class="level10 product-nav" style="width: 100%;">
         <% @products.each do |product| %>|
-          <li><%= link_to product.category.name, category_path(product.category.name), style:'text-decoration: none;' %></li>
+          <li style="text-decoration: none;"><%= link_to product.category.name, category_path(product.category.name), style:'text-decoration: none; color:black;' %></li>
         <% end %>
       </ul>
     </div>
