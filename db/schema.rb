@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2020_08_28_005349) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id", null: false
     t.integer "quantity"
-    t.integer "price_cents", default: 0, null: false
     t.string "description"
+    t.integer "price_cents", default: 0, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end

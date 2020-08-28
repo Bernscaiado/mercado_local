@@ -8,12 +8,12 @@
           <%= image_tag('https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', class: "w-100")%>
         <% end %>
       </div>
-      <div class="card-body">
+      <div class="card-body ">
         <h4 class="card-title"><%= @product.name %></h4>
       </div>
     </div>
     <div class="col-12 col-lg-6">
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush ">
         <li class="list-group-item">Categoria: <%= @product.category.name %></li>
         <li class="list-group-item">Sobre o produto: <%= @product.description %></li>
         <li class="list-group-item">Preço: R<%= number_to_currency(@product.price) %></li>
