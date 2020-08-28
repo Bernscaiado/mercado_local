@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get 'search', to: 'pages#search'
   get 'myprofile', to: 'pages#profile'
   root to: 'pages#home'
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
